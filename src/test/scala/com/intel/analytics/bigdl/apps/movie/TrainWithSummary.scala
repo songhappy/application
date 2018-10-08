@@ -1,16 +1,17 @@
 package com.intel.analytics.bigdl.apps.movie
 
 import com.intel.analytics.bigdl.Module
-import com.intel.analytics.bigdl.apps.recommendation.{ModelParam, ModelUtils}
+import com.intel.analytics.zoo.apps.recommendation.{ModelParam, ModelUtils}
 import com.intel.analytics.bigdl.utils.Engine
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.sql.{Row, SparkSession}
 import org.scalatest.{BeforeAndAfter, FunSuite}
 import org.apache.spark.sql.functions._
-import com.intel.analytics.bigdl.apps.recommendation.Utils._
+import com.intel.analytics.zoo.apps.recommendation.Utils._
 import com.intel.analytics.bigdl.dataset.Sample
 import com.intel.analytics.bigdl.nn.{ClassNLLCriterion, MSECriterion}
 import com.intel.analytics.bigdl.optim._
+import com.intel.analytics.zoo.apps.movie.DataPreprocess
 import org.apache.spark.rdd.RDD
 
 class TrainWithSummary extends FunSuite with BeforeAndAfter {
