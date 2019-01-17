@@ -24,7 +24,7 @@ import scala.util.Random
 class understandData extends FunSuite {
 
   test("understanding tensor") {
-    val tensor: Tensor[Float] = Tensor(2, 3).apply1(e => Random.nextFloat())
+    val tensor: Tensor[Float] = Tensor(2, 2, 3).apply1(e => Random.nextFloat())
     println(tensor.storage())
     println(tensor.storageOffset())
     println(tensor.size().mkString("|"))
@@ -35,7 +35,7 @@ class understandData extends FunSuite {
     println("-----------------")
     println(tensor.select(1, 1))
     println("-----------------")
-    println(tensor.select(1, 1).transpose(1, 1))
+    println(tensor.select(2, 1).transpose(1, 1))
     println("-----------------")
     println(tensor.transpose(1, 2))
   }

@@ -92,7 +92,6 @@ class RNNModelSpec extends ZooSpecHelper {
     val timestamp: RDD[String] = sc.textFile(input + "/timestamp.txt")
     timestamp.take(10).foreach(println)
 
-
     val dataIn = timestamp.map(x => {
       val lines: Array[Array[Float]] = Source.fromFile(input + "/" + x).getLines
         .map(x => x.split("\t").map(y => y.toFloat)).toArray

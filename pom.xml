@@ -16,7 +16,7 @@
         <scala.version>2.11.8</scala.version>
         <hadoop.version>2.5.0</hadoop.version>
         <spark.major.version>2.2</spark.major.version>
-        <spark.version>2.2.0</spark.version>
+        <spark.version>2.3.0</spark.version>
         <scala.binary.version>2.11</scala.binary.version>
         <compiler.plugin.version>3.1</compiler.plugin.version>
         <jblas.version>1.2.3</jblas.version>
@@ -122,6 +122,11 @@
             <version>0.10</version>
         </dependency>
 
+        <dependency>
+            <groupId>ml.combust.mleap</groupId>
+            <artifactId>mleap-spark_2.11</artifactId>
+            <version>0.10.0</version>
+        </dependency>
 
     </dependencies>
 
