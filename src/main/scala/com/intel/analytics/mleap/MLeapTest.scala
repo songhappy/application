@@ -53,12 +53,13 @@ object MLeapTest {
     // then serialize pipeline
     val sbc = SparkBundleContext().withDataset(pipeline.transform(dataframe))
 
-    val x: ManagedResource[BundleFile] = managed(BundleFile("jar:file:/tmp/test/simple-spark-pipeline.zip"))
-    for (bf <- managed(BundleFile("jar:file:/tmp/test/simple-spark-pipeline.zip"))) {
+
+    val bfiles = managed(BundleFile("jar:file:/Users/guoqiong/intelWork/git/application/src/test/model/simple-spark-pipeline.zip"))
+    for (bf <- managed(BundleFile("jar:file:/Users/guoqiong/intelWork/git/application/src/test/model/simple-spark-pipeline.zip"))) {
       pipeline.writeBundle.save(bf)(sbc).get
     }
 
-    val bundle: Bundle[Transformer] = (for (bundleFile <- managed(BundleFile("jar:file:/tmp/test/simple-spark-pipeline.zip"))) yield {
+    val bundle: Bundle[Transformer] = (for (bundleFile <-bfiles) yield {
       bundleFile.loadMleapBundle().get
     }).opt.get
 
@@ -70,8 +71,8 @@ object MLeapTest {
 
     // transform the dataframe using our pipeline
     val mleapPipeline = bundle.root
-    val frame2 = mleapPipeline.transform(frame).get
-    val data2 = frame2.dataset
+    val frame2: DefaultLeapFrame = mleapPipeline.transform(frame).get
+    val data2: Seq[Row] = frame2.dataset
 
     data2.map(row => println(row))
 //
