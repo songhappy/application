@@ -14,49 +14,64 @@
         <java.target.version>1.8</java.target.version>
         <scala.major.version>2.11</scala.major.version>
         <scala.version>2.11.8</scala.version>
-        <hadoop.version>2.5.0</hadoop.version>
+        <hadoop.version>2.7.0</hadoop.version>
         <spark.major.version>2.2</spark.major.version>
-        <spark.version>2.3.0</spark.version>
+        <spark.version>2.4.3</spark.version>
         <scala.binary.version>2.11</scala.binary.version>
         <compiler.plugin.version>3.1</compiler.plugin.version>
         <jblas.version>1.2.3</jblas.version>
         <PermGen>1024m</PermGen>
         <MaxPermGen>2048m</MaxPermGen>
         <CodeCacheSize>512m</CodeCacheSize>
-        <BIGDL_VERSION>0.5.0</BIGDL_VERSION>
+        <BIGDL_VERSION>0.12.1</BIGDL_VERSION>
     </properties>
 
     <dependencies>
 
-        <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
-            <version>2.9.9</version>
-        </dependency>
-        
+        <!-- <dependency>
+             <groupId>com.intel.analytics.zoo</groupId>
+             <artifactId>analytics-zoo-bigdl_0.12.1-spark_2.4.3</artifactId>
+             <version>0.10.0-SNAPSHOT</version>
+          </dependency>
+        -->
+
+        <!-- https://mvnrepository.com/artifact/com.intel.analytics.zoo/analytics-zoo-bigdl_0.12.1-spark -->
         <dependency>
             <groupId>com.intel.analytics.zoo</groupId>
-            <artifactId>analytics-zoo</artifactId>
-            <version>0.1.0-SNAPSHOT</version>
+            <artifactId>analytics-zoo-bigdl_0.12.1-spark_2.4.3</artifactId>
+            <version>0.9.0</version>
         </dependency>
 
         <dependency>
             <groupId>com.intel.analytics.bigdl</groupId>
-            <artifactId>bigdl-SPARK_${spark.major.version}</artifactId>
-            <version>${BIGDL_VERSION}</version>
+            <artifactId>bigdl-SPARK_2.4</artifactId>
+            <version>0.12.1</version>
         </dependency>
 
         <dependency>
-            <groupId>com.intel.analytics.bigdl.native</groupId>
-            <artifactId>mkl-java-mac</artifactId>
-            <version>0.3.0</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.intel.analytics.bigdl.native</groupId>
-                    <artifactId>bigdl-native</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>org.tensorflow</groupId>
+            <artifactId>libtensorflow</artifactId>
+            <version>1.15.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.tensorflow</groupId>
+            <artifactId>proto</artifactId>
+            <version>1.15.0</version>
+        </dependency>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.10.10</version>
+        </dependency>
+
+
+        <!--  <dependency>
+              <groupId>com.intel.analytics.bigdl</groupId>
+              <artifactId>bigdl-SPARK_${spark.major.version}</artifactId>
+              <version>${BIGDL_VERSION}</version>
+          </dependency>
+        -->
+
 
         <dependency>
             <groupId>org.apache.spark</groupId>
