@@ -17,7 +17,7 @@ case class PreprocessParms(
                             val nonClk: Int = 5
                           )
 
-object Preprocessing {
+object Preprocess {
 
 
   def main(args: Array[String]): Unit = {
@@ -60,7 +60,7 @@ object Preprocessing {
       .getOrCreate()
 
     val metaBooks = spark.read.json(parms.inputDir + "meta_Books.json")
-    val reviews = spark.read.json(parms.inputDir + "point02reviews.json")
+    val reviews = spark.read.json(parms.inputDir + "reviews_Books.json")
 
     val joined = Util.join(reviews, metaBooks)
 
@@ -78,7 +78,7 @@ object Preprocessing {
     val prepadDF = Util.prepad(withNegativeHistory, Array("cat_history", "asin_history"))
     val maskDF = Util.mask(prepadDF, Array("cat_history", "asin_history"))
 
-    maskDF.show(10, false)
+   // maskDF.show(10, false)
     maskDF.write.mode(SaveMode.Overwrite).parquet(parms.outputDir+"data")
     val end =  DateTime.now()
     print((end.getMillis()-begin.getMillis())/1000d, "second")

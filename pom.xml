@@ -243,16 +243,15 @@
                 </configuration>
             </plugin>
 
-            <!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>2.3</version>
                 <configuration>
                     <shadedArtifactAttached>true</shadedArtifactAttached>
-                    <shadedArtifactId>cube</shadedArtifactId>
+                    <shadedArtifactId>application</shadedArtifactId>
                     <outputDirectory>target</outputDirectory>
-                    <finalName>cube</finalName>
+                    <finalName>application</finalName>
                         <filters>
                             <filter>
                                 <artifact>*:*</artifact>
@@ -283,7 +282,6 @@
                     </execution>
                 </executions>
             </plugin>
-    -->
 
         </plugins>
 
